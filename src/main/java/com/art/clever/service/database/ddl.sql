@@ -9,3 +9,9 @@ CREATE table users (
    surname varchar(32)
 );
 CREATE INDEX users_lastname_index ON users (lastname);
+
+DROP TABLE IF EXISTS banks;
+CREATE table banks (
+   bic_code varchar(8) NOT NULL PRIMARY KEY,
+   bank_name varchar(64) NOT NULL
+);

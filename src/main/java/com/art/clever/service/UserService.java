@@ -19,7 +19,7 @@ public interface UserService {
      *
      * @param user {@link User} the user
      * @return the boolean
-     * @throws ServiceException the service exception
+     * @throws ServiceException the ServiceException exception
      */
     boolean addUser(User user) throws ServiceException;
 
@@ -27,7 +27,7 @@ public interface UserService {
      * Finds all users
      *
      * @return {@link List} of {@link User} the list of found users
-     * @throws ServiceException the service exception
+     * @throws ServiceException the ServiceException exception
      */
     List<User> findUsers() throws ServiceException;
 
@@ -36,7 +36,7 @@ public interface UserService {
      *
      * @param passportId {@link String} the passport id number
      * @return {@link Optional} of {@link User} the optional of found user
-     * @throws ServiceException the service exception
+     * @throws ServiceException the ServiceException exception
      */
     Optional<User> findUserByPassportId(String passportId) throws ServiceException;
 
@@ -45,7 +45,7 @@ public interface UserService {
      *
      * @param lastname {@link String} the username
      * @return {@link Optional} of {@link User} the optional of found user
-     * @throws ServiceException the service exception
+     * @throws ServiceException the ServiceException exception
      */
     Optional<User> findUserByLastname(String lastname) throws ServiceException;
 
@@ -54,7 +54,7 @@ public interface UserService {
      *
      * @param user {@link String} the user
      * @return the boolean
-     * @throws ServiceException the service exception
+     * @throws ServiceException the ServiceException exception
      */
     boolean updateUser(User user) throws ServiceException;
 
@@ -63,7 +63,7 @@ public interface UserService {
      *
      * @param passportId {@link String} the username
      * @return the boolean
-     * @throws ServiceException the service exception
+     * @throws ServiceException the ServiceException exception
      */
     boolean deleteUser(String passportId) throws ServiceException;
 }

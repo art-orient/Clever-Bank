@@ -108,7 +108,7 @@ public class UserServiceImpl implements UserService {
         try {
             return userDao.update(user);
         } catch (CleverDatabaseException e) {
-            throw new ServiceException("An error occurred while updating of user", e);
+            throw new ServiceException("An error occurred while updating the user", e);
         }
     }
 
@@ -124,7 +124,7 @@ public class UserServiceImpl implements UserService {
         try {
             return userDao.delete(passportId);
         } catch (CleverDatabaseException e) {
-            throw new ServiceException("An error occurred while deleting of user", e);
+            throw new ServiceException("An error occurred while deleting the user", e);
         }
     }
 }

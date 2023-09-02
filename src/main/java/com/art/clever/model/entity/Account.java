@@ -7,9 +7,10 @@ import java.time.LocalDateTime;
 
 @Data
 public class Account {
-    private final long userId;
-    private String number;
-    private BigDecimal balance;
-    private LocalDateTime createdAt;
+    private final Bank bank;
+    private final String userPassportId;
+    private final String number;
     private Currency currency;
+    private LocalDateTime createdAt;
+    private BigDecimal balance;
 }

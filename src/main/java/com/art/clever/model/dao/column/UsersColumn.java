@@ -1,5 +1,11 @@
 package com.art.clever.model.dao.column;
 
+/**
+ * The {@code UsersColumn} class of constants for working with database table users
+ *
+ * @author Aliaksandr Artsikhovich
+ * @version 1.0
+ */
 public class UsersColumn {
     public static final String PASSPORT_ID = "passport";
     public static final String LASTNAME = "lastname";
