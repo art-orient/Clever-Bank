@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status = "INFO">
+    <Properties>
+        <property name="pattern_console">
+            %d{ABSOLUTE} %-5level %logger{1} - %msg%n
+        </property>
+        <property name="pattern_file">
+            %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{5} %M %L - %msg%n
+        </property>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${pattern_console}"/>
+        </Console>
+        <RollingFile name="TxtFile" fileName="C:/apache-tomcat-10.0.6/logs/orion.log" append="true"
+                     filePattern="logs\${date:yyyy-MM-dd}\%d{yyyy-MM-dd_HH-mm}_%i.log">
+            <PatternLayout pattern="${pattern_file}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="10 KB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level = "debug">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="TxtFile"/>
+        </Root>
+    </Loggers>
+</Configuration>
