@@ -1,5 +1,6 @@
 package com.art.clever;
 
+import com.art.clever.model.dao.impl.UserDaoJdbc;
 import com.art.clever.model.entity.User;
 import com.art.clever.model.pool.ConnectionPool;
 import com.art.clever.service.UserService;
@@ -15,7 +16,7 @@ public class Demo {
         user.setLastName("Андронов");
         user.setFirstName("Петр");
         user.setSurName("Васильевич");
-        UserService userService = new UserServiceImpl();
+        UserService userService = new UserServiceImpl(UserDaoJdbc.getInstance());
         List<User> users = new ArrayList<>();
         try {
             ConnectionPool pool = ConnectionPool.INSTANCE;

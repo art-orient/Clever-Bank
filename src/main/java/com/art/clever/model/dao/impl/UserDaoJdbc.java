@@ -44,7 +44,7 @@ public class UserDaoJdbc implements UserDao {
     private static final String GET_USER_BY_LASTNAME = SELECT_ALL + " WHERE lastname = ?";
     private static final String GET_USER_BY_PASSPORT_ID = SELECT_ALL + " WHERE passport = ?";
     private static final String DELETE_USER = "DELETE FROM users WHERE passport = ?";
-    private static final String UPDATE_USER = "UPDATE users SET lastname = ?, firstname = ?, lastname = ? " +
+    private static final String UPDATE_USER = "UPDATE users SET lastname = ?, firstname = ?, surname = ? " +
             "WHERE passport = ?";
     private static final int UPDATE_PASSPORT_ID_INDEX = 4;
 

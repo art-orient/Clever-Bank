@@ -21,8 +21,11 @@ import java.util.Optional;
  */
 public class UserServiceImpl implements UserService {
     private static final Logger logger = LogManager.getLogger();
-    private final UserDao userDao = UserDaoJdbc.getInstance();
+    private final UserDao userDao;
 
+    public UserServiceImpl(UserDao userDao) {
+        this.userDao = userDao;
+    }
     /**
      * Registers a new user
      *
@@ -34,10 +37,8 @@ public class UserServiceImpl implements UserService {
     public boolean addUser(User user) throws ServiceException {
         try {
             if (userDao.checkIsUserRegistered(user.getPassportId())) {
-                System.out.println("Such the user has already registered! - " + user.getLastName());
-                return false;
-//                for using servlets:
-//                throw new ServiceException("The user has already registered in the database");
+                throw new ServiceException("The user has already registered in the database - "
+                        + user.getLastName());
             } else {
                 return userDao.add(user);
             }
