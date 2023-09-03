@@ -23,3 +23,12 @@ INSERT INTO users VALUES
 ('3200570A053PN5', 'Шарков', 'Александр', 'Мванович'),
 ('3210570A053PN5', 'Носков', 'Александр', 'Георгиквич'),
 ('3220870A053PN5', 'Гринко', 'Иван', 'Петрович');
+
+INSERT INTO banks VALUES
+('CLXX', 'Clever-Bank'),
+('BEXX', 'Beta Bank'),
+('GAXX', 'Gamma Bank'),
+('SP7X', 'Sport Bank'),
+('EMUB', 'Elon Musk Bank'),
+('GR7B', 'Groshik Bank'),
+('ODBB', 'One Day Bank');

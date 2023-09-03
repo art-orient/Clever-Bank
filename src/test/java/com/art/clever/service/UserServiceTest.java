@@ -28,7 +28,7 @@ public class UserServiceTest {
     private UserDao userDao;
     @InjectMocks
     private UserService userService;
-    User user;
+    private static User user;
     private static List<User> users;
 
     @BeforeClass
