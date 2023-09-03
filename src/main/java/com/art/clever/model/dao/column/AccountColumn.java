@@ -6,7 +6,7 @@ package com.art.clever.model.dao.column;
  * @author Aliaksandr Artsikhovich
  * @version 1.0
  */
-public class AccountsColumn {
+public class AccountColumn {
     public static final String CODE_IBAN = "code_iban";
     public static final String BANK_BIC_CODE = "bank_bic_code";
     public static final String USER_ID = "user_passport_id";
@@ -21,6 +21,6 @@ public class AccountsColumn {
     public static final int CREATED_AT_INDEX = 5;
     public static final int BALANCE_INDEX = 6;
 
-    private AccountsColumn() {
+    private AccountColumn() {
     }
 }

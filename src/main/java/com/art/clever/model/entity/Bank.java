@@ -11,8 +11,8 @@ import lombok.Data;
 @Data
 public class Bank {
     /**
-     * Unique identification {@code String} value for the bank, also used during authorization
-     * process. It is the BIC code for this bank.
+     * Unique identification {@code String} value for the bank.
+     * It is the BIC code for this bank.
      */
     private String codeBic;
     /**

@@ -23,18 +23,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static com.art.clever.model.dao.column.AccountsColumn.BALANCE;
-import static com.art.clever.model.dao.column.AccountsColumn.BALANCE_INDEX;
-import static com.art.clever.model.dao.column.AccountsColumn.BANK_BIC_CODE;
-import static com.art.clever.model.dao.column.AccountsColumn.BANK_BIC_CODE_INDEX;
-import static com.art.clever.model.dao.column.AccountsColumn.CODE_IBAN;
-import static com.art.clever.model.dao.column.AccountsColumn.CODE_IBAN_INDEX;
-import static com.art.clever.model.dao.column.AccountsColumn.CREATED_AT;
-import static com.art.clever.model.dao.column.AccountsColumn.CREATED_AT_INDEX;
-import static com.art.clever.model.dao.column.AccountsColumn.CURRENCY;
-import static com.art.clever.model.dao.column.AccountsColumn.CURRENCY_INDEX;
-import static com.art.clever.model.dao.column.AccountsColumn.USER_ID;
-import static com.art.clever.model.dao.column.AccountsColumn.USER_ID_INDEX;
+import static com.art.clever.model.dao.column.AccountColumn.BALANCE;
+import static com.art.clever.model.dao.column.AccountColumn.BALANCE_INDEX;
+import static com.art.clever.model.dao.column.AccountColumn.BANK_BIC_CODE;
+import static com.art.clever.model.dao.column.AccountColumn.BANK_BIC_CODE_INDEX;
+import static com.art.clever.model.dao.column.AccountColumn.CODE_IBAN;
+import static com.art.clever.model.dao.column.AccountColumn.CODE_IBAN_INDEX;
+import static com.art.clever.model.dao.column.AccountColumn.CREATED_AT;
+import static com.art.clever.model.dao.column.AccountColumn.CREATED_AT_INDEX;
+import static com.art.clever.model.dao.column.AccountColumn.CURRENCY;
+import static com.art.clever.model.dao.column.AccountColumn.CURRENCY_INDEX;
+import static com.art.clever.model.dao.column.AccountColumn.USER_ID;
+import static com.art.clever.model.dao.column.AccountColumn.USER_ID_INDEX;
 
 /**
  * The {@link AccountDaoJdbc} class works with database table accounts

@@ -22,3 +22,14 @@ CREATE table accounts (
    created_at timestamp NOT NULL,
    balance numeric
 );
+
+DROP TABLE IF EXISTS transactions;
+CREATE table transactions (
+   action_id serial NOT NULL PRIMARY KEY,
+   completed_at timestamp NOT NULL,
+   transaction_type varchar(40) NOT NULL,
+   from_iban varchar(40) NOT NULL,
+   to_iban varchar(40) NOT NULL,
+   currency varchar(8) NOT NULL,
+   amount numeric
+);

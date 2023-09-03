@@ -17,10 +17,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static com.art.clever.model.dao.column.BanksColumn.BANK_NAME;
-import static com.art.clever.model.dao.column.BanksColumn.BANK_NAME_INDEX;
-import static com.art.clever.model.dao.column.BanksColumn.BIC_CODE;
-import static com.art.clever.model.dao.column.BanksColumn.BIC_CODE_INDEX;
+import static com.art.clever.model.dao.column.BankColumn.BANK_NAME;
+import static com.art.clever.model.dao.column.BankColumn.BANK_NAME_INDEX;
+import static com.art.clever.model.dao.column.BankColumn.BIC_CODE;
+import static com.art.clever.model.dao.column.BankColumn.BIC_CODE_INDEX;
 
 /**
  * The {@code BankDaoJdbc} class works with database table banks

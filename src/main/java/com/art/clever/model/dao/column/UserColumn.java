@@ -6,7 +6,7 @@ package com.art.clever.model.dao.column;
  * @author Aliaksandr Artsikhovich
  * @version 1.0
  */
-public class UsersColumn {
+public class UserColumn {
     public static final String PASSPORT_ID = "passport";
     public static final String LASTNAME = "lastname";
     public static final String FIRSTNAME = "firstname";
@@ -17,6 +17,6 @@ public class UsersColumn {
     public static final int FIRSTNAME_INDEX = 3;
     public static final int SURNAME_INDEX = 4;
 
-    private UsersColumn() {
+    private UserColumn() {
     }
 }

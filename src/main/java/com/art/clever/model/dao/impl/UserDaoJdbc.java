@@ -17,14 +17,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import static com.art.clever.model.dao.column.UsersColumn.FIRSTNAME;
-import static com.art.clever.model.dao.column.UsersColumn.FIRSTNAME_INDEX;
-import static com.art.clever.model.dao.column.UsersColumn.LASTNAME;
-import static com.art.clever.model.dao.column.UsersColumn.LASTNAME_INDEX;
-import static com.art.clever.model.dao.column.UsersColumn.PASSPORT_ID;
-import static com.art.clever.model.dao.column.UsersColumn.PASSPORT_ID_INDEX;
-import static com.art.clever.model.dao.column.UsersColumn.SURNAME;
-import static com.art.clever.model.dao.column.UsersColumn.SURNAME_INDEX;
+import static com.art.clever.model.dao.column.UserColumn.FIRSTNAME;
+import static com.art.clever.model.dao.column.UserColumn.FIRSTNAME_INDEX;
+import static com.art.clever.model.dao.column.UserColumn.LASTNAME;
+import static com.art.clever.model.dao.column.UserColumn.LASTNAME_INDEX;
+import static com.art.clever.model.dao.column.UserColumn.PASSPORT_ID;
+import static com.art.clever.model.dao.column.UserColumn.PASSPORT_ID_INDEX;
+import static com.art.clever.model.dao.column.UserColumn.SURNAME;
+import static com.art.clever.model.dao.column.UserColumn.SURNAME_INDEX;
 
 /**
  * The {@link UserDaoJdbc} class works with database table users

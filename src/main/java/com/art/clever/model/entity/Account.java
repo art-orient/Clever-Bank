@@ -4,8 +4,6 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 import java.time.Instant;
-import java.time.LocalDateTime;
-import java.time.ZonedDateTime;
 
 /**
  * Bean class of model layer represents the bank account of the user
@@ -16,8 +14,8 @@ import java.time.ZonedDateTime;
 @Data
 public class Account {
     /**
-     * Unique identification {@code String} value for the account, also used during authorization
-     * process. It is the IBAN code for this account.
+     * Unique identification {@code String} value for the account.
+     * It is the IBAN code for this account.
      */
     private String codeIBAN;
     /**
