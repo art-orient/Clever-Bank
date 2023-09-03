@@ -34,7 +34,7 @@ public class BankDaoJdbc implements BankDao {
 
     private static final BankDaoJdbc INSTANCE = new BankDaoJdbc();
     private static final String INSERT_BANK = "INSERT INTO banks (bic_code, bank_name) VALUES (?, ?)";
-    private static final String SELECT_ALL = "SELECT bic_code, bank_name FROM banks";
+    private static final String SELECT_ALL = "SELECT * FROM banks";
     private static final String GET_BANK_BY_BIC_CODE = SELECT_ALL + " WHERE bic_code = ?";
     private static final String GET_BANK_BY_NAME = SELECT_ALL + " WHERE bank_name = ?";
     private static final String DELETE_BANK = "DELETE FROM banks WHERE bic_code = ?";

@@ -3,7 +3,6 @@ package com.art.clever.service.impl;
 import com.art.clever.exception.CleverDatabaseException;
 import com.art.clever.exception.ServiceException;
 import com.art.clever.model.dao.UserDao;
-import com.art.clever.model.dao.impl.UserDaoJdbc;
 import com.art.clever.model.entity.User;
 import com.art.clever.service.UserService;
 import org.apache.logging.log4j.LogManager;
@@ -20,6 +19,7 @@ import java.util.Optional;
  * @see UserService
  */
 public class UserServiceImpl implements UserService {
+
     private static final Logger logger = LogManager.getLogger();
     private final UserDao userDao;
 

@@ -27,7 +27,7 @@ import static com.art.clever.model.dao.column.UsersColumn.SURNAME;
 import static com.art.clever.model.dao.column.UsersColumn.SURNAME_INDEX;
 
 /**
- * The {@code UserDaoJdbc} class works with database table users
+ * The {@link UserDaoJdbc} class works with database table users
  *
  * @author Aliaksandr Artsikhovich
  * @version 1.0
@@ -39,7 +39,7 @@ public class UserDaoJdbc implements UserDao {
     private static final UserDaoJdbc INSTANCE = new UserDaoJdbc();
     private static final String INSERT_USER = "INSERT INTO users (passport, lastname, firstname, surname) " +
             "VALUES (?, ?, ?, ?)";
-    private static final String SELECT_ALL = "SELECT passport, lastname, firstname, surname FROM users";
+    private static final String SELECT_ALL = "SELECT * FROM users";
     private static final String CHECK_BY_PASSPORT_ID = "SELECT passport FROM users WHERE passport = ?";
     private static final String GET_USER_BY_LASTNAME = SELECT_ALL + " WHERE lastname = ?";
     private static final String GET_USER_BY_PASSPORT_ID = SELECT_ALL + " WHERE passport = ?";

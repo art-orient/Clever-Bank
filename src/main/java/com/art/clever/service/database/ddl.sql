@@ -15,3 +15,13 @@ CREATE table banks (
    bic_code varchar(8) NOT NULL PRIMARY KEY,
    bank_name varchar(64) NOT NULL
 );
+
+DROP TABLE IF EXISTS accounts;
+CREATE table accounts (
+   code_iban varchar(32) NOT NULL PRIMARY KEY,
+   bank_bic_code varchar(8) NOT NULL,
+   user_passport_id varchar(16) NOT NULL,
+   currency varchar(8) NOT NULL,
+   created_at timestamp NOT NULL,
+   balance money
+);
