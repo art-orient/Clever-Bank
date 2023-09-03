@@ -1,6 +1,3 @@
---DROP DATABASE IF EXISTS clever;
---CREATE DATABASE clever;
-
 DROP TABLE IF EXISTS users;
 CREATE table users (
    passport varchar(16) NOT NULL PRIMARY KEY,
@@ -18,10 +15,10 @@ CREATE table banks (
 
 DROP TABLE IF EXISTS accounts;
 CREATE table accounts (
-   code_iban varchar(32) NOT NULL PRIMARY KEY,
+   code_iban varchar(40) NOT NULL PRIMARY KEY,
    bank_bic_code varchar(8) NOT NULL,
    user_passport_id varchar(16) NOT NULL,
    currency varchar(8) NOT NULL,
    created_at timestamp NOT NULL,
-   balance money
+   balance numeric
 );

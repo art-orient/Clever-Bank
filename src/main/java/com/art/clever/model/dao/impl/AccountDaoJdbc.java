@@ -18,7 +18,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.Instant;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -55,6 +55,7 @@ public class AccountDaoJdbc implements AccountDao {
     private static final String GET_ALL_BY_BANK = SELECT_ALL + " WHERE bank_bic_code = ?";
     private static final String UPDATE_ACCOUNT = "UPDATE accounts SET bank_bic_code = ?, user_passport_id = ?, " +
             "currency = ?, created_at = ?, balance = ? WHERE code_iban = ?";
+    private static final int UPDATE_IBAN_CODE_INDEX = 6;
     private static final String DELETE_ACCOUNT = "DELETE FROM accounts WHERE code_iban = ?";
     private final BankDao bankDao = BankDaoJdbc.getInstance();
     private final UserDao userDao = UserDaoJdbc.getInstance();
@@ -82,7 +83,7 @@ public class AccountDaoJdbc implements AccountDao {
             preparedStatement.setString(BANK_BIC_CODE_INDEX, account.getBank().getCodeBic());
             preparedStatement.setString(USER_ID_INDEX, account.getUser().getPassportId());
             preparedStatement.setString(CURRENCY_INDEX, account.getCurrency().name());
-            preparedStatement.setObject(CREATED_AT_INDEX, account.getCreatedAt());
+            preparedStatement.setTimestamp(CREATED_AT_INDEX, Timestamp.from(account.getCreatedAt()));
             preparedStatement.setBigDecimal(BALANCE_INDEX, account.getBalance());
             isAddAccount = (preparedStatement.executeUpdate() == 1);
             logger.log(Level.INFO, () -> "The account is saved in the database");
@@ -154,8 +155,9 @@ public class AccountDaoJdbc implements AccountDao {
     public List<Account> getAllForUser(User user) throws CleverDatabaseException {
         List<Account> accounts = new ArrayList<>();
         try (Connection connection = ConnectionPool.INSTANCE.getConnection();
-             Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery(GET_ALL_FOR_USER)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(GET_ALL_FOR_USER)) {
+            preparedStatement.setString(1, user.getPassportId());
+            ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 Account account = extractAccount(resultSet);
                 accounts.add(account);
@@ -178,8 +180,9 @@ public class AccountDaoJdbc implements AccountDao {
     public List<Account> getAllForBank(Bank bank) throws CleverDatabaseException {
         List<Account> accounts = new ArrayList<>();
         try (Connection connection = ConnectionPool.INSTANCE.getConnection();
-             Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery(GET_ALL_BY_BANK)) {
+             PreparedStatement preparedStatement = connection.prepareStatement(GET_ALL_BY_BANK)) {
+            preparedStatement.setString(1, bank.getCodeBic());
+            ResultSet resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 Account account = extractAccount(resultSet);
                 accounts.add(account);
@@ -207,8 +210,9 @@ public class AccountDaoJdbc implements AccountDao {
             preparedStatement.setString(BANK_BIC_CODE_INDEX -1, account.getBank().getCodeBic());
             preparedStatement.setString(USER_ID_INDEX - 1, account.getUser().getPassportId());
             preparedStatement.setString(CURRENCY_INDEX - 1, account.getCurrency().name());
-            preparedStatement.setObject(CREATED_AT_INDEX, account.getCreatedAt());
-            preparedStatement.setBigDecimal(BALANCE_INDEX, account.getBalance());
+            preparedStatement.setTimestamp(CREATED_AT_INDEX - 1, Timestamp.from(account.getCreatedAt()));
+            preparedStatement.setBigDecimal(BALANCE_INDEX - 1, account.getBalance());
+            preparedStatement.setString(UPDATE_IBAN_CODE_INDEX, account.getCodeIBAN());
             isAccountUpdated = (preparedStatement.executeUpdate() == 1);
             logger.log(Level.INFO, "The account {} is updated", account.getCodeIBAN());
         } catch (SQLException e) {
@@ -251,7 +255,7 @@ public class AccountDaoJdbc implements AccountDao {
         account.setBank(bankDao.getByBicCode(resultSet.getString(BANK_BIC_CODE)).orElse(null));
         account.setUser(userDao.getByPassportId(resultSet.getString(USER_ID)).orElse(null));
         account.setCurrency(Currency.valueOf(resultSet.getString(CURRENCY)));
-        account.setCreatedAt(resultSet.getObject(CREATED_AT, Instant.class));
+        account.setCreatedAt(resultSet.getTimestamp(CREATED_AT).toInstant());
         account.setBalance(resultSet.getBigDecimal(BALANCE));
         return account;
     }
